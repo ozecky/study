@@ -1,0 +1,57 @@
+<a href="http://www.webdesignleaves.com/wp/jquery/1631/" target="_blank">http://www.webdesignleaves.com/wp/jquery/1631/</a>
+<div class="container">
+  <span>container</span>
+  <div class="row">
+    <div class="col-12 text-right">
+      <%= link_to '#', class: 'link-add btn btn-primary' do %>
+          <i class="fas fa-plus"></i>
+      <% end %>
+    </div>
+  </div>
+  <div class="table-container row" style="border: solid 1px">
+    <span>table-container</span>
+    <div class="table-content col-12" style="border: solid 1px">
+      <span>table-content</span>
+      <table class="table table-bordered">
+        <thead>
+        <tr>
+          <th>TABLE</th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody class="tbody">
+        <tr class="tr">
+          <td class="td-item">ITEM</td>
+          <td>
+            <%= link_to '#', class: 'link-delete' do %>
+                <i class="fas fa-trash-alt"></i>
+            <% end %>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<table style="display: none">
+  <tbody class="tbody-dummy">
+  <tr class="tr">
+    <td class="td-item">ITEM</td>
+    <td>
+      <%= link_to '#', class: 'link-delete' do %>
+          <i class="fas fa-trash-alt"></i>
+      <% end %>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<script>
+    Study.study_1.chap_1_1();
+    //Study.study_1.chap_1_2();
+    //Study.study_1.chap_1_2_re_call();
+    //Study.study_1.chap_1_3();
+    //Study.study_1.chap_1_3_small();
+    //Study.study_1.chap_1_4();
+    //Study.study_1.chap_1_4_block();
+    //Study.study_1.chap_1_5();
+</script>
