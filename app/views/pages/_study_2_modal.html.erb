@@ -1,0 +1,50 @@
+<div class="modal-dialog modal-md">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title">
+        <span>Chapter 4</span>
+      </h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <table class="table">
+        <tbody>
+        <tr>
+          <th>ATOKYO</th>
+          <td>
+            <%= link_to '#', class: 'btn btn-sm btn-primary link-copy' do %>
+                <i class="far fa-copy"></i>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <th>GARAGE-R</th>
+          <td>
+            <%= link_to '#', class: 'btn btn-sm btn-primary link-copy' do %>
+                <i class="far fa-copy"></i>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <th>Mitsuichem</th>
+          <td>
+            <%= link_to '#', class: 'btn btn-sm btn-primary link-copy' do %>
+                <i class="far fa-copy"></i>
+            <% end %>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-lg btn-default" data-dismiss="modal">
+        Close
+      </button>
+    </div>
+  </div>
+</div>
+<script>
+    Study.study_2.chap_4_modal();
+</script>
