@@ -1,4 +1,4 @@
-class StudyController
+class Study1Controller
   chap_1_1: ->
     $('tr.tr td').on 'click', ->
       console.log('tr.tr td')
@@ -223,4 +223,4 @@ class StudyController
 
 
 
-this.Study.study_1 = new StudyController
+this.Study.study_1 = new Study1Controller

@@ -1,0 +1,64 @@
+<a href="http://api.jquery.com/trigger/" target="_blank">http://api.jquery.com/trigger/</a>
+<div class="container">
+  <div class="row my-5">
+    <div id="button-chap-1" class="col-2 offset-5 border text-center">
+      <labe>Chapter 1 Click</labe>
+    </div>
+  </div>
+
+  <div class="row my-5">
+    <div id="content-chap-2-1" class="col-4 offset-4 border text-center">
+      <button id="button-chap-2-1">Chapter 2-1 ATA-Click</button>
+    </div>
+  </div>
+
+  <div class="row my-5">
+    <div id="content-chap-2-2" class="col-4 offset-4 border text-center">
+      <button id="button-chap-2-2">Chapter 2-2 ATA-Click</button>
+    </div>
+  </div>
+
+  <div class="row my-5">
+    <div class="col-4 offset-4 border text-center">
+      <input name="chap_3_1" type="text"/>
+      <button id="button-chap-3-1">Chapter 3-1 ATA-Click ARGS</button>
+    </div>
+  </div>
+
+  <div class="row my-5">
+    <div class="col-6 offset-3 border text-center">
+      <input name="chap_3_2_1" class="input-first" type="text" placeholder="First Name"/>
+      <input name="chap_3_2_2" class="input-family" type="text" placeholder="Family Name"/>
+      <button id="button-chap-3-2">Chapter 3-2 ATA-Click ARGS Array</button>
+    </div>
+  </div>
+
+  <div class="row my-5">
+    <div class="col-6 offset-3 border text-center">
+      <input name="chap_3_3_1" class="input-first" type="text" placeholder="First Name"/>
+      <input name="chap_3_3_2" class="input-family" type="text" placeholder="Family Name"/>
+      <button id="button-chap-3-3">Chapter 3-3 ATA-Click ARGS Object</button>
+    </div>
+  </div>
+
+  <div class="row my-5">
+    <div class="col-6 offset-3 border text-center">
+      <%= text_field 'chap_3_4', '', id: 'input-chap-4', class: 'form-control', placeholder: 'Answer' %>
+      <%= link_to pages_study_2_modal_path, remote: true, class: 'btn btn-primary' do %>
+          Chapter 4
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div id="common-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
+
+<script>
+    Study.study_2.chap_1();
+    Study.study_2.chap_2_1();
+    Study.study_2.chap_2_2();
+    Study.study_2.chap_3_1();
+    Study.study_2.chap_3_2();
+    Study.study_2.chap_3_3();
+    Study.study_2.chap_4();
+</script>
