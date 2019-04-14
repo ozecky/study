@@ -7,4 +7,7 @@ class PagesController < ApplicationController
 
   def study_2
   end
+
+  def study_3
+  end
 end

@@ -1,0 +1,2 @@
+class StudySubitem < ApplicationRecord
+end
