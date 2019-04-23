@@ -20,7 +20,7 @@ class ChangeCodeDataType < ActiveRecord::Migration[5.1]
     end
 
     say 'null:true<=>falseはchange_column_nullを使用'
-    change_column_null :study_items, :code_no, true
-    change_column_null :study_subitems, :code_no, true
+    change_column_null :study_items, :code_no, false
+    change_column_null :study_subitems, :code_no, false
   end
 end

@@ -2,7 +2,7 @@ class AddReferenceToStudyItems < ActiveRecord::Migration[5.1]
   def change
     say 'study_itemsとstudy_itemsをreference結合'
     say 'null:falseにするとエラーがでるので一旦null許可'
-    add_reference :study_items, :study_subitem, index: true, foreign_key: true
+    add_reference :study_items, :study_subitem, index: true, foreign_key: true, after: :id
 
     say 'change内に部分的にreversibleでない処理を挟む場合はreversibeを使用する'
     reversible do |dir|

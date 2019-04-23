@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 20190414125534) do
 
   create_table "study_items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
-    t.integer "code_no"
+    t.integer "code_no", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20190414125534) do
 
   create_table "study_subitems", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
-    t.integer "code_no"
+    t.integer "code_no", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
