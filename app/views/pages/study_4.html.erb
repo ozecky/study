@@ -1,0 +1,198 @@
+https://cccabinet.jpn.org/bootstrap4/utilities/flex
+<br>
+https://www.webcreatorbox.com/tech/css-flexbox-cheat-sheet
+<br>
+<div class="container">
+  <div class="row mb-4">
+    <div class="col-6">
+      <label>Bootstrap3</label>
+      <pre class="card p-2">
+.row {
+    display: block;
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.col-sm-6 {
+    width: 50%;
+    float: left;
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+      </pre>
+    </div>
+    <div class="col-6">
+      <label>Bootstrap4</label>
+      <pre class="card p-2">
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.col-sm-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+      </pre>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-12">
+      <h3>container : .d-flex<br><small>{ display: flex; }</small></h3>
+    </div>
+  </div>
+  <div class="sample-row row mb-5">
+    <div class="col-sm-12 d-flex">
+      <div class="sample-box"><label>1</label></div>
+      <div class="sample-box"><label>2</label></div>
+      <div class="sample-box"><label>3</label></div>
+      <div class="sample-box"><label>4</label></div>
+      <div class="sample-box"><label>5</label></div>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-12">
+      <h3>container : .d-flex .flex-wrap<br><small>{ display: flex; flex-wrap: wrap; }</small></h3>
+    </div>
+  </div>
+  <div class="sample-row sample-row-color row mb-5">
+    <div class="col-sm-12 d-flex flex-wrap">
+      <div class="sample-box"><label>1</label></div>
+      <div class="sample-box"><label>2</label></div>
+      <div class="sample-box"><label>3</label></div>
+      <div class="sample-box"><label>4</label></div>
+      <div class="sample-box"><label>5</label></div>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col-12">
+      <h3>container : .d-flex .flex-wrap<br><small>{ display: flex; flex-wrap: wrap; }</small></h3>
+      <h3>item : .order-*<br><small>{ order: *; }</small></h3>
+    </div>
+  </div>
+  <div class="sample-row row mb-5">
+    <div class="col-sm-12 d-flex flex-wrap">
+      <div class="sample-box order-5"><label>1</label></div>
+      <div class="sample-box order-2"><label>2</label></div>
+      <div class="sample-box order-4"><label>3</label></div>
+      <div class="sample-box order-1"><label>4</label></div>
+      <div class="sample-box order-3"><label>5</label></div>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col-12">
+      <h3>container : .d-flex .flex-wrap<br><small>{ display: flex; flex-wrap: wrap; }</small></h3>
+      <h3>item : .order-lg-*, .order-xl-*<br><small>{ order: *; }</small></h3>
+    </div>
+  </div>
+  <div class="sample-row sample-row-color row mb-5">
+    <div class="col-sm-12 d-flex flex-wrap">
+      <div class="sample-box order-lg-5 order-xl-5"><label>1</label></div>
+      <div class="sample-box order-lg-4 order-xl-2"><label>2</label></div>
+      <div class="sample-box order-lg-3 order-xl-4"><label>3</label></div>
+      <div class="sample-box order-lg-2 order-xl-1"><label>4</label></div>
+      <div class="sample-box order-lg-1 order-xl-3"><label>5</label></div>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col-12">
+      <h3>container : .d-flex .flex-wrap .justify-content-between<br><small>{ display: flex; flex-wrap: wrap; justify-content: space-between; }</small></h3>
+    </div>
+  </div>
+  <div class="sample-row row mb-5">
+    <div class="col-sm-12 d-flex flex-wrap justify-content-between">
+      <div class="sample-box"><label>1</label></div>
+      <div class="sample-box"><label>2</label></div>
+      <div class="sample-box"><label>3</label></div>
+      <div class="sample-box"><label>4</label></div>
+      <div class="sample-box"><label>5</label></div>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col-12">
+      <h3>container : .d-flex .flex-wrap .justify-content-between .flex-column<br><small>{ display: flex; flex-wrap: wrap; justify-content: space-between;  flex-direction: column; }</small></h3>
+    </div>
+  </div>
+  <div style="min-height: 800px" class="sample-row sample-row-color row mb-5">
+    <div class="col-sm-12 d-flex flex-wrap justify-content-between flex-column">
+      <div class="sample-box"><label>1</label></div>
+      <div class="sample-box"><label>2</label></div>
+      <div class="sample-box"><label>3</label></div>
+      <div class="sample-box"><label>4</label></div>
+      <div class="sample-box"><label>5</label></div>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col-12">
+      <h3>container : .d-flex .flex-wrap<br><small>{ display: flex; flex-wrap: wrap; }</small></h3>
+      <h3>item : .flex-grow-*<br><small>{ flex-grow: *; }</small></h3>
+    </div>
+  </div>
+  <div class="sample-row row mb-5">
+    <div class="col-sm-12 d-flex flex-wrap">
+      <div class="sample-box flex-grow-1"><label>1</label></div>
+      <div class="sample-box flex-grow-1"><label>2</label></div>
+      <div class="sample-box flex-grow-1"><label>3</label></div>
+      <div class="sample-box flex-grow-1"><label>4</label></div>
+      <div class="sample-box flex-grow-1"><label>5</label></div>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col-12">
+      <h3>container : .d-flex .flex-wrap .align-items-center<br><small>{ display: flex; flex-wrap: wrap; align-items: center; }</small></h3>
+    </div>
+  </div>
+  <div class="sample-row sample-row-color row mb-5">
+    <div class="col-sm-12 d-flex flex-wrap align-items-center">
+      <div class="sample-box m-2"><label>1</label></div>
+      <div class="sample-box m-2"><label>2</label><br><label>2-1</label></div>
+      <div class="sample-box m-2"><label>3</label></div>
+      <div class="sample-box m-2"><label>4</label><br><label>4-1</label><br><label>4-2</label></div>
+      <div class="sample-box m-2"><label>5</label></div>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col-12">
+      <h3>container : .d-flex .flex-wrap .align-items-stretch<br><small>{ display: flex; flex-wrap: wrap; align-items: stretch; }</small></h3>
+    </div>
+  </div>
+  <div class="sample-row row mb-5">
+    <div class="col-sm-12 d-flex flex-wrap align-items-stretch">
+      <div class="sample-box m-2"><label>1</label></div>
+      <div class="sample-box m-2"><label>2</label><br><label>2-1</label></div>
+      <div class="sample-box m-2"><label>3</label></div>
+      <div class="sample-box m-2"><label>4</label><br><label>4-1</label><br><label>4-2</label></div>
+      <div class="sample-box m-2"><label>5</label></div>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col-12">
+      <h3>container : .d-flex .flex-wrap .justify-content-around .align-content-center .align-items-center<br><small>{ display: flex; flex-wrap: wrap; align-items: around; align-content: center; align-items: center; }</small></h3>
+    </div>
+  </div>
+  <div class="sample-row sample-row-color row mb-5">
+    <div style="min-height: 300px" class="col-sm-12 d-flex flex-wrap justify-content-around align-content-center align-items-center">
+      <div class="sample-box m-2"><label>1</label></div>
+      <div class="sample-box m-2"><label>2</label><br><label>2-1</label></div>
+      <div class="sample-box m-2"><label>3</label></div>
+      <div class="sample-box m-2"><label>4</label><br><label>4-1</label><br><label>4-2</label></div>
+      <div class="sample-box m-2"><label>5</label></div>
+    </div>
+  </div>
+</div>

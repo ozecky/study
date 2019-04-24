@@ -1,0 +1,10 @@
+.sample-row {
+  border: solid 1px #dddddd;
+  &.sample-row-color {
+    background-color: #eeeeff;
+  }
+}
+.sample-box {
+  padding: 2rem 3rem;
+  border: solid 2px #cccccc;
+}

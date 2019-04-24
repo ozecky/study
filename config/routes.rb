@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   get 'pages/study_2'
   get 'pages/study_2_modal'
   get 'pages/study_3'
+  get 'pages/study_4'
 end
