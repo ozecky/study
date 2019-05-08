@@ -10,4 +10,8 @@ class PagesController < ApplicationController
 
   def study_3
   end
+
+  def study_5
+    @study_items = StudyItem.all
+  end
 end

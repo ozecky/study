@@ -1,0 +1,69 @@
+<% url = Study::Application.routes.url_helpers %>
+class Study5Controller
+  remoteLink: ->
+    $('.ajax-format-html-link').on 'click', ()->
+      $.ajax
+        cache: true
+        url:  "<%= url.edit_study_item_path(id: '1', format: 'html') %>"
+        type: 'get'
+        success: (data, status, xhr) ->
+          $('#result').html(data)
+      false
+
+    $('.ajax-format-json-link').on 'click', ()->
+      $.ajax
+        cache: true
+        url:  "<%= url.edit_study_item_path(id: '1', format: 'json') %>"
+        type: 'get'
+        success: (data, status, xhr) ->
+          $('#result').html(data.format)
+      false
+
+    $('.ajax-format-js-link').on 'click', ()->
+      $.ajax
+        cache: true
+        url:  "<%= url.edit_study_item_path(id: '1', format: 'js') %>"
+        type: 'get'
+        success: (data, status, xhr) ->
+          $('#result').html(data)
+      false
+
+    $('.ajax-data-html-link').on 'click', ()->
+      $.ajax
+        cache: true
+        dataType: 'html'
+        url:  "<%= url.edit_study_item_path(id: '1') %>"
+        type: 'get'
+        success: (data, status, xhr) ->
+          $('#result').html(data)
+      false
+
+    $('.ajax-data-json-link').on 'click', ()->
+      $.ajax
+        cache: true
+        dataType: 'json'
+        url:  "<%= url.edit_study_item_path(id: '1') %>"
+        type: 'get'
+        success: (data, status, xhr) ->
+          $('#result').html(data.format)
+      false
+
+    $('.ajax-data-js-link').on 'click', ()->
+      $.ajax
+        cache: true
+        dataType: 'script'
+        url:  "<%= url.edit_study_item_path(id: '1') %>"
+        type: 'get'
+        success: (data, status, xhr) ->
+          $('#result').html(data)
+      false
+
+    $('.fire-link').on 'click', ()->
+      Rails.fire($(@), 'click')
+      false
+
+    $('.trigger-link').on 'click', (e)->
+      $(@).trigger(e)
+      false
+
+this.Study.study_5 = new Study5Controller
