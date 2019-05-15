@@ -1,5 +1,6 @@
 <div class="container">
   https://railsguides.jp/working_with_javascript_in_rails.html
+  <% study_item_1 = @study_items.first %>
   <div class="row">
     <div class="col-12">
       <table class="table">
@@ -7,84 +8,120 @@
         <tr>
           <th>Name</th>
           <th>Code</th>
-          <th></th>
-          <th></th>
-          <th></th>
-          <th></th>
         </tr>
         </thead>
         <tbody>
-        <% study_item_1 = @study_items.first %>
         <tr>
           <td><%= study_item_1.name %></td>
           <td><%= study_item_1.code_no %></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <table class="table">
+        <tbody>
+        <tr>
           <td>
-            <%= link_to '/study_5/alert.js', class: 'static-html-link' do %>
-                <i class="fas fa-edit fa-fw"></i>html
+            <%= link_to edit_study_item_path(study_item_1) do %>
+                <i class="fas fa-edit fa-fw"></i>link:html
             <% end %>
           </td>
           <td>
-            <%= link_to '/study_5/alert.js', remote: true, class: 'static-remote-link' do %>
-                <i class="fas fa-edit fa-fw"></i>remote
+            <%= link_to edit_study_item_path(study_item_1, format: :json) do %>
+                <i class="fas fa-edit fa-fw"></i>link:json
+            <% end %>
+          </td>
+          <td>
+            <%= link_to edit_study_item_path(study_item_1, format: :js) do %>
+                <i class="fas fa-edit fa-fw"></i>link:js
+            <% end %>
+          </td>
+          <td>
+            <%= link_to edit_study_item_path(study_item_1, format: :csv) do %>
+                <i class="fas fa-edit fa-fw"></i>link:csv
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <%= link_to edit_study_item_path(study_item_1, format: :html), remote: true, class: 'remote-link' do %>
+                <i class="fas fa-edit fa-fw"></i>remote:html
+            <% end %>
+          </td>
+          <td>
+            <%= link_to edit_study_item_path(study_item_1, format: :json), remote: true, class: 'remote-link' do %>
+                <i class="fas fa-edit fa-fw"></i>remote:json
+            <% end %>
+          </td>
+          <td>
+            <%= link_to edit_study_item_path(study_item_1, format: :js), remote: true, class: 'remote-link' do %>
+                <i class="fas fa-edit fa-fw"></i>remote:js
+            <% end %>
+          </td>
+          <td>
+            <%= link_to edit_study_item_path(study_item_1, format: :csv), remote: true, class: 'remote-link' do %>
+                <i class="fas fa-edit fa-fw"></i>remote:csv
             <% end %>
           </td>
         </tr>
         <tr>
           <td>
             <%= link_to '#', class: 'ajax-format-html-link' do %>
-                <i class="fas fa-edit fa-fw"></i>format:html
+                <i class="fas fa-edit fa-fw"></i>ajax:format:html
             <% end %>
           </td>
           <td>
             <%= link_to '#', class: 'ajax-format-json-link' do %>
-                <i class="fas fa-edit fa-fw"></i>format:json
+                <i class="fas fa-edit fa-fw"></i>ajax:format:json
             <% end %>
           </td>
           <td>
             <%= link_to '#', class: 'ajax-format-js-link' do %>
-                <i class="fas fa-edit fa-fw"></i>format:js
+                <i class="fas fa-edit fa-fw"></i>ajax:format:js
             <% end %>
           </td>
           <td>
+            <%= link_to '#', class: 'ajax-format-csv-link' do %>
+                <i class="fas fa-edit fa-fw"></i>ajax:format:csv
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td>
             <%= link_to '#', class: 'ajax-data-html-link' do %>
-                <i class="fas fa-edit fa-fw"></i>dataType:html
+                <i class="fas fa-edit fa-fw"></i>ajax:dataType:html
             <% end %>
           </td>
           <td>
             <%= link_to '#', class: 'ajax-data-json-link' do %>
-                <i class="fas fa-edit fa-fw"></i>dataType:json
+                <i class="fas fa-edit fa-fw"></i>ajax:dataType:json
             <% end %>
           </td>
           <td>
-            <%= link_to '#', class: 'ajax-data-js-link' do %>
-                <i class="fas fa-edit fa-fw"></i>dataType:script
+            <%= link_to '#', class: 'ajax-data-script-link' do %>
+                <i class="fas fa-edit fa-fw"></i>ajax:dataType:script
             <% end %>
           </td>
-
+          <td>
+            <%= link_to '#', class: 'ajax-data-text-link' do %>
+                <i class="fas fa-edit fa-fw"></i>ajax:dataType:text
+            <% end %>
+          </td>
         </tr>
         <tr>
-          <td>
-            <%= link_to edit_study_item_path(study_item_1), remote: true, class: 'remote-link' do %>
-                <i class="fas fa-edit fa-fw"></i>remote
+          <td colspan="2">
+            <%= link_to '#', class: 'ajax-format-html-data-json-link' do %>
+                <i class="fas fa-edit fa-fw"></i>ajax:format:html:dataType:json
             <% end %>
           </td>
-          <td>
-            <%= link_to edit_study_item_path(study_item_1), remote: true, class: 'fire-link' do %>
-                <i class="fas fa-edit fa-fw"></i>fire
+          <td colspan="2">
+            <%= link_to '#', class: 'ajax-format-json-data-html-link' do %>
+                <i class="fas fa-edit fa-fw"></i>ajax:format:json:dataType:html
             <% end %>
           </td>
-          <td>
-            <%= link_to edit_study_item_path(study_item_1), remote: true, class: 'trigger-link' do %>
-                <i class="fas fa-edit fa-fw"></i>trigger
-            <% end %>
-          </td>
-          <td>
-            <%= link_to '#', class: 'ajax-link' do %>
-                <i class="fas fa-edit fa-fw"></i>ajax
-            <% end %>
-          </td>
-          <td></td>
-          <td></td>
         </tr>
         </tbody>
       </table>
@@ -93,6 +130,9 @@
   <div class="row">
     <div class="col-12">
       <div id="result">
+
+      </div>
+      <div id="error" style="color: red">
 
       </div>
     </div>
