@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   get 'pages/study_2_modal'
   get 'pages/study_3'
   get 'pages/study_4'
+  get 'pages/study_5'
+  resources :study_items, only: [:edit, :update, :destroy]
 end

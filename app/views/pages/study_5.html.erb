@@ -1,0 +1,143 @@
+<div class="container">
+  https://railsguides.jp/working_with_javascript_in_rails.html
+  <% study_item_1 = @study_items.first %>
+  <div class="row">
+    <div class="col-12">
+      <table class="table">
+        <thead>
+        <tr>
+          <th>Name</th>
+          <th>Code</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td><%= study_item_1.name %></td>
+          <td><%= study_item_1.code_no %></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <table class="table">
+        <tbody>
+        <tr>
+          <td>
+            <%= link_to edit_study_item_path(study_item_1) do %>
+                <i class="fas fa-edit fa-fw"></i>link:html
+            <% end %>
+          </td>
+          <td>
+            <%= link_to edit_study_item_path(study_item_1, format: :json) do %>
+                <i class="fas fa-edit fa-fw"></i>link:json
+            <% end %>
+          </td>
+          <td>
+            <%= link_to edit_study_item_path(study_item_1, format: :js) do %>
+                <i class="fas fa-edit fa-fw"></i>link:js
+            <% end %>
+          </td>
+          <td>
+            <%= link_to edit_study_item_path(study_item_1, format: :csv) do %>
+                <i class="fas fa-edit fa-fw"></i>link:csv
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <%= link_to edit_study_item_path(study_item_1, format: :html), remote: true, class: 'remote-link' do %>
+                <i class="fas fa-edit fa-fw"></i>remote:html
+            <% end %>
+          </td>
+          <td>
+            <%= link_to edit_study_item_path(study_item_1, format: :json), remote: true, class: 'remote-link' do %>
+                <i class="fas fa-edit fa-fw"></i>remote:json
+            <% end %>
+          </td>
+          <td>
+            <%= link_to edit_study_item_path(study_item_1, format: :js), remote: true, class: 'remote-link' do %>
+                <i class="fas fa-edit fa-fw"></i>remote:js
+            <% end %>
+          </td>
+          <td>
+            <%= link_to edit_study_item_path(study_item_1, format: :csv), remote: true, class: 'remote-link' do %>
+                <i class="fas fa-edit fa-fw"></i>remote:csv
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <%= link_to '#', class: 'ajax-format-html-link' do %>
+                <i class="fas fa-edit fa-fw"></i>ajax:format:html
+            <% end %>
+          </td>
+          <td>
+            <%= link_to '#', class: 'ajax-format-json-link' do %>
+                <i class="fas fa-edit fa-fw"></i>ajax:format:json
+            <% end %>
+          </td>
+          <td>
+            <%= link_to '#', class: 'ajax-format-js-link' do %>
+                <i class="fas fa-edit fa-fw"></i>ajax:format:js
+            <% end %>
+          </td>
+          <td>
+            <%= link_to '#', class: 'ajax-format-csv-link' do %>
+                <i class="fas fa-edit fa-fw"></i>ajax:format:csv
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <%= link_to '#', class: 'ajax-data-html-link' do %>
+                <i class="fas fa-edit fa-fw"></i>ajax:dataType:html
+            <% end %>
+          </td>
+          <td>
+            <%= link_to '#', class: 'ajax-data-json-link' do %>
+                <i class="fas fa-edit fa-fw"></i>ajax:dataType:json
+            <% end %>
+          </td>
+          <td>
+            <%= link_to '#', class: 'ajax-data-script-link' do %>
+                <i class="fas fa-edit fa-fw"></i>ajax:dataType:script
+            <% end %>
+          </td>
+          <td>
+            <%= link_to '#', class: 'ajax-data-text-link' do %>
+                <i class="fas fa-edit fa-fw"></i>ajax:dataType:text
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <%= link_to '#', class: 'ajax-format-html-data-json-link' do %>
+                <i class="fas fa-edit fa-fw"></i>ajax:format:html:dataType:json
+            <% end %>
+          </td>
+          <td colspan="2">
+            <%= link_to '#', class: 'ajax-format-json-data-html-link' do %>
+                <i class="fas fa-edit fa-fw"></i>ajax:format:json:dataType:html
+            <% end %>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div id="result">
+
+      </div>
+      <div id="error" style="color: red">
+
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+    Study.study_5.remoteLink();
+</script>
