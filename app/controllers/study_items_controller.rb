@@ -1,4 +1,8 @@
 class StudyItemsController < ApplicationController
+  def index
+    @study_items = StudyItem.all
+  end
+
   def edit
     respond_to do |format|
       format.html do
