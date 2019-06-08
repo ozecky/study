@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row mt-4">
+    <div class="col-12">
+      <h1>Draper</h1>
+      <table class="table">
+        <tbody>
+        <thead>
+        <tr>
+          <th>Name</th>
+          <th>Code</th>
+          <th>Date</th>
+          <th>Badge</th>
+          <th>Select</th>
+        </tr>
+        </thead>
+        <% @study_items.each do |study_item| %>
+        <tr>
+          <td><%= study_item.name %></td>
+          <td><%= study_item.code_no %></td>
+          <td><%= study_item.created_at_text %></td>
+          <td><%== study_item.code_badge_html %></td>
+          <td><%= select_tag 'dummy', options_for_select(study_sub_item_options), class: 'form-control-sm' %></td>
+        </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
