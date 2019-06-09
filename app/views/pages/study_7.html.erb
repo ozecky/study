@@ -1,0 +1,265 @@
+<div class="container">
+  <h1 class="text-center">Active Record クエリインターフェイス</h1>
+  https://railsguides.jp/active_record_querying.html
+  <div class="row">
+    <div class="col-12">
+      <h2>1 データベースからオブジェクトを取り出す</h2>
+      <dl>
+        <dt>1.1.1 find</dt>
+        <dd>StudyItem.find(1)</dd>
+        <dd>StudyItem.find([1,2]) <= Array</dd>
+        <dd>StudyItem.where(id: [1,2]) <= ActiveRecord::Relation</dd>
+        <dd>StudyItem.find(100) <= ActiveRecord::RecordNotFound例外</dd>
+        <dt>1.1.2 take</dt>
+        <dd>StudyItem.take</dd>
+        <dd>StudyItem.take(2) <= Array</dd>
+        <dt>1.1.3 first</dt>
+        <dd>StudyItem.first</dd>
+        <dd>StudyItem.first(2) <= Array</dd>
+        <dt>1.1.4 last</dt>
+        <dd>StudyItem.last</dd>
+        <dd>StudyItem.last(2) <= Array</dd>
+        <dt>1.1.5 find_by</dt>
+        <dd>StudyItem.find_by(name: 'item_1')</dd>
+        <dd>StudyItem.find_by(name: 'no hit') <= nil</dd>
+        <dd>StudyItem.find_by!(name: 'item_1')</dd>
+        <dd>StudyItem.find_by!(name: 'no hit') <= ActiveRecord::RecordNotFound例外</dd>
+        <dt>1.2.1 find_each <= 1000個づつ取り出して1個づつ渡す</dt>
+        <dt>1.2.2 find_in_batches <= 1000個づつ取り出して1000個づつ渡す</dt>
+      </dl>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <h2>2 条件</h2>
+      <dl>
+        <dt>プレースホルダー</dt>
+        <dd>StudyItem.where('code_no = ?', 1234) △</dd>
+        <dd>StudyItem.where('code_no = :code_no', code_no: 1234) △</dd>
+        <dd>StudyItem.where(code_no: 1234) ○</dd>
+        <dt>絶対やってはいけない！！</dt>
+        <dd>StudyItem.where("code_no = #{1234}") ×</dd>
+        <dd>StudyItem.where('code_no = ' + '1234') ×</dd>
+        <dd>StudyItem.where("code_no = #{'0 OR id > 0'}")</dd>
+        <dt>実践編</dt>
+        <dd>StudyItem.joins(:study_subitems).where(study_subitems: {code_no: 9999}) ○</dd>
+        <dd>StudyItem.where(code_no: [1234,2345])</dd>
+        <dd>StudyItem.where.not(code_no: 2345)</dd>
+        <dd>StudyItem.where(name: 'item_1').or(StudyItem.where(code_no: 2345))</dd>
+        <dd>StudyItem.where('name LIKE ?', 'item_%')</dd>
+        <dt>※1st:ハッシュ渡し、2nd:プレースホルダー、SQL文埋め込み厳禁</dt>
+      </dl>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <h2>3 並び順</h2>
+      <dl>
+        <dt>ハッシュ渡しで</dt>
+        <dd>StudyItem.order(code_no: :desc)</dd>
+        <dd>StudyItem.joins(:study_subitems).order('study_subitems.code_no DESC') </dd>
+      </dl>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <h2>4 特定のフィールドだけを取り出す</h2>
+      <dl>
+        <dd>StudyItem.select(:code_no)</dd>
+        <dd>StudyItem.select(:name, :code_no)</dd>
+      </dl>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <h2>5 LimitとOffset</h2>
+      <dl>
+        <dd>StudyItem.limit(2).offset(1)</dd>
+      </dl>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <h2>6 グループ/7 Having</h2>
+      <dl>
+        <dd>StudyItem.select('code_no, count(id) as code_count').group(:code_no) <= Modelにcode_countが追加される</dd>
+        <dd>StudyItem.select('code_no, count(id) as code_count').group(:code_no).having('code_no > ?', 2000)</dd>
+        <dd>StudyItem.group(:code_no).count <= ハッシュで取得</dd>
+      </dl>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <h2>8 条件を上書きする</h2>
+      <dl>
+        <dd>SQLチェーンで既存の条件を打ち消したい時</dd>
+        <dt>8.1 unscope</dt>
+        <dt>8.2 only</dt>
+        <dt>8.3 reorder</dt>
+        <dt>8.4 reverse_order</dt>
+        <dt>8.5 rewhere</dt>
+      </dl>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <h2>9 Nullリレーション</h2>
+      <dl>
+        <dd>StudyItem.none <= 値を返したく無い時</dd>
+      </dl>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <h2>10 読み取り専用オブジェクト</h2>
+      <dl>
+        <dd>StudyItem.readonly.first</dd>
+        <dd>StudyItem.readonly.first.save</dd>
+      </dl>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <h2>11 レコードを更新できないようロックする</h2>
+      <dl>
+        <dt>後日・・・</dt>
+      </dl>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <h2>12 テーブルを結合する</h2>
+      <dl>
+        <dt>12.1 joins</dt>
+        <dd>StudyItem.joins(:study_subitems)</dd>
+        <dd>StudyItem.joins(:study_subitems).where(study_subitems: {code_no: 9999})</dd>
+        <dt>12.2 left_outer_joins</dt>
+        <dd>StudyItem.left_outer_joins(:study_subitems)</dd>
+        <dd>StudyItem.left_outer_joins(:study_subitems).where(study_subitems: {code_no: nil})</dd>
+        <dd>StudyItem.includes(:study_subitems)</dd>
+        <dd>StudyItem.includes(:study_subitems).references(:study_subitems)</dd>
+      </dl>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <h2>13 関連付けを一括読み込みする</h2>
+      <dl>
+        <dd>StudyItem.joins(:study_subitems).each {|study_item| p study_item.study_subitems}</dd>
+        <dd>StudyItem.includes(:study_subitems).each {|study_item| p study_item.study_subitems}</dd>
+        <dd>StudyItem.includes(:study_subitems).where(study_subitems: {code_no: 9999}) <= ハッシュならばReferencesいらず</dd>
+        <dd>StudyItem.includes(:study_subitems).where('study_subitems.code_no = ?', 9999)</dd>
+        <dd>StudyItem.includes(:study_subitems).references(:study_subitems).where('study_subitems.code_no = ?', 9999) <= プレースホルダーはReferences必要</dd>
+      </dl>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <h2>14 スコープ</h2>
+      <dl>
+        <dd>StudyItem.upper_2000</dd>
+        <dd>StudyItem.upper_3000</dd>
+        <dd>StudyItem.upper_2000.upper_3000</dd>
+        <dd>StudyItem.upper(2500)</dd>
+        <dd>StudyItem.upper_even(2500)</dd>
+        <dd>StudyItem.upper_even(2501)</dd>
+        <dd>StudyItem.unscoped.all</dd>
+        <dd>※スコープで引数を使用するのであれば、クラスメソッドとして定義する方が推奨されます。</dd>
+      </dl>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <h2>15 動的検索</h2>
+      <dl>
+        <dd>StudyItem.find_by_name('item_1')</dd>
+        <dd>StudyItem.find_by_name('item_0') <= nil</dd>
+        <dd>StudyItem.find_by_name!('item_1')</dd>
+        <dd>StudyItem.find_by_name!('item_0') <= ActiveRecord::RecordNotFound:</dd>
+      </dl>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <h2>16 Enums</h2>
+      <dl>
+        <dt>後日・・・</dt>
+      </dl>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <h2>17 メソッドチェインを理解する</h2>
+      <dl>
+        <dt>各自</dt>
+      </dl>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <h2>18 新しいオブジェクトを検索またはビルドする</h2>
+      <dl>
+        <dt>18.1 find_or_create_by</dt>
+        <dt>18.2 find_or_create_by!</dt>
+        <dt>18.3 find_or_initialize_by <= 無い場合はNewするだけ（保存しない）使えるのでは？</dt>
+      </dl>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <h2>19 SQLで検索する</h2>
+      <dl>
+        <dt>find_by_sql</dt>
+        <dd>StudyItem.find_by_sql('SELECT * FROM study_items WHERE code_no > 2000')</dd>
+        <dd>StudyItem.find_by_sql('SELECT * FROM study_items WHERE id = 1')</dd>
+        <dd>※StudyItemに詰まった状態の「配列」が返る</dd>
+        <dt>select_all</dt>
+        <dd>StudyItem.connection.select_all('SELECT * FROM study_items WHERE code_no > 2000').to_hash</dd>
+        <dd>StudyItem.connection.select_all('SELECT * FROM study_items WHERE id = 1').to_hash</dd>
+        <dd>※StudyItemに詰まっていない状態の「配列」が返る</dd>
+        <dt>19.2 pluck</dt>
+        <dd>StudyItem.all.pluck(:id)</dd>
+        <dd>StudyItem.all.pluck(:name, :id)</dd>
+        <dd>StudyItem.all.map{|study_item| [study_item.name, study_item.id]}</dd>
+        <dd>※options作成は今後pluckへ！！</dd>
+        <dt>19.3 ids</dt>
+        <dd>StudyItem.all.ids</dd>
+        <dd>StudyItem.all.map(&:id)</dd>
+        <dd>※id配列作成は今後idsへ！！</dd>
+      </dl>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <h2>20 オブジェクトの存在チェック</h2>
+      <dl>
+        <dd>StudyItem.exists?</dd>
+        <dd>StudyItem.exists?(1) <= 主キー</dd>
+        <dd>StudyItem.exists?(0)</dd>
+        <dd>StudyItem.exists?(code_no: 1234)</dd>
+        <dd>StudyItem.exists?(code_no: 0000)</dd>
+        <dd>StudyItem.upper(2500).exists?</dd>
+        <dd>StudyItem.upper(3500).exists?</dd>
+      </dl>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <h2>21 計算</h2>
+      <dl>
+        <dt>省略</dt>
+      </dl>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <h2>22 EXPLAINを実行する</h2>
+      <dl>
+        <dt>後日・・・</dt>
+      </dl>
+    </div>
+  </div>
+</div>
+<script>
+
+</script>
