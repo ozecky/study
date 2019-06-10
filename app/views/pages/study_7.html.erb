@@ -2,6 +2,100 @@
   <h1 class="text-center">Active Record クエリインターフェイス</h1>
   https://railsguides.jp/active_record_querying.html
   <div class="row">
+    <div class="col-4">
+      <h3>study_items</h3>
+      <table class="table table-bordered">
+        <thead>
+        <tr>
+          <th>id</th>
+          <th>name</th>
+          <th>code_no</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>1</td>
+          <td>item_1</td>
+          <td>1234</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>item_2</td>
+          <td>2345</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>item_3</td>
+          <td>3456</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>item_4</td>
+          <td>1234</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>item_5</td>
+          <td>3456</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-4">
+      <h3>study_items_subitems</h3>
+      <table class="table table-bordered">
+        <thead>
+        <tr>
+          <th>study_item_id</th>
+          <th>study_subitem_id</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>1</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>1</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-4">
+      <h3>study_subitems</h3>
+      <table class="table table-bordered">
+        <thead>
+        <tr>
+          <th>id</th>
+          <th>name</th>
+          <th>code_no</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>1</td>
+          <td>subitem_1</td>
+          <td>9999</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>subitem_2</td>
+          <td>8888</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row">
     <div class="col-12">
       <h2>1 データベースからオブジェクトを取り出す</h2>
       <dl>
