@@ -1,0 +1,3 @@
+$('#common-modal').html("<%= escape_javascript(render 'modal',
+  title: t('.title'), button_icon: 'fas fa-plus', button_label: t('view.button.do_create')) %>");
+$('#common-modal').modal();

@@ -1,0 +1,38 @@
+<div class="modal-dialog modal-md">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title">
+        <i class="fas fa-balance-scale fa-fw"></i>
+        <span><%= title %></span>
+      </h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <%= form_with model: @study_item, id: 'form-study-item', class: 'form-horizontal' do |f| %>
+        <div class="modal-body">
+          <div class="form-group row">
+            <%= f.label :name, class: 'col-form-label col-4' %>
+            <div class="col-8">
+              <%= f.text_field :name, class: 'form-control', required: true %>
+            </div>
+          </div>
+          <div class="form-group row">
+            <%= f.label :code_no, class: 'col-form-label col-4' %>
+            <div class="col-8">
+              <%= f.text_field :code_no, class: 'form-control', required: true %>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <%= button_tag class: 'btn btn-lg btn-primary button-submit' do %>
+            <i class="<%= button_icon %> fa-fw"></i>
+            <%= button_label %>
+          <% end %>
+          <button type="button" class="btn btn-lg btn-default" data-dismiss="modal">
+            <%= t('view.button.cancel') %>
+          </button>
+        </div>
+    <% end %>
+  </div>
+</div>

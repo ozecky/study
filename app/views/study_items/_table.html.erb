@@ -1,0 +1,37 @@
+<table class="table">
+  <tbody>
+  <thead>
+  <tr>
+    <th><%= StudyItem.human_attribute_name('name') %></th>
+    <th><%= StudyItem.human_attribute_name('code_no') %></th>
+    <th>Date</th>
+    <th>Badge</th>
+    <th>Select</th>
+    <th colspan="2">
+      <%= link_to new_study_item_path, remote: true, class: 'btn btn-primary btn-sm' do %>
+          <i class="fas fa-plus"></i>
+      <% end %>
+    </th>
+  </tr>
+  </thead>
+  <% study_items.each do |study_item| %>
+      <tr>
+        <td><%= study_item.name %></td>
+        <td><%= study_item.code_no %></td>
+        <td><%= study_item.created_at_text %></td>
+        <td><%== study_item.code_badge_html %></td>
+        <td><%= select_tag 'dummy', options_for_select(study_sub_item_options), class: 'form-control-sm' %></td>
+        <td>
+          <%= link_to edit_study_item_path(study_item), remote: true do %>
+              <i class="far fa-edit"></i>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to study_item, method: :delete, remote: true, data: {confirm: t('view.label.confirm_delete', name: StudyItem.model_name.human)} do %>
+              <i class="far fa-trash-alt"></i>
+          <% end %>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

@@ -9,4 +9,8 @@ class StudyItem < ApplicationRecord
   scope :upper_3000, -> { where('code_no > ?', 3000) }
   scope :upper, -> (threshold) { where('code_no > ?', threshold) }
   scope :upper_even, -> (threshold) { where('code_no > ?', threshold) if threshold % 2 == 0 }
+
+  def self.list
+    StudyItemDecorator.decorate_collection(StudyItem.all)
+  end
 end

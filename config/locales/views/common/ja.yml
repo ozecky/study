@@ -1,0 +1,10 @@
+ja:
+  view:
+    button:
+      cancel: キャンセル
+      do_create: 作成する
+      do_close: 閉じる
+      do_update: 更新する
+    label:
+      confirm_delete: "本当に%{name}を削除してよろしいですか？"
+

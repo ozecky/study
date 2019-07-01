@@ -1,0 +1,20 @@
+en:
+  study_items:
+    create:
+      prompt:
+        notice: Create Done.
+        alert: "Create Failed.:%{error}"
+    destroy:
+      prompt:
+        notice: Destroy Done.
+        alert: "Destroy Failed.:%{error}"
+    edit:
+      title: Edit Study Item
+    index:
+      title: Study Item List
+    new:
+      title: Create Study Item
+    update:
+      prompt:
+        notice: Update Done.
+        alert: "Update Failed.:%{error}"

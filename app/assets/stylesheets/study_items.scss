@@ -1,3 +1,12 @@
 // Place all the styles related to the study_items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#flash-message-container {
+   position: fixed;
+   top: 100px;
+   right: 0;
+   z-index: 1000;
+   .alert {
+     border-radius: 0;
+   }
+ }

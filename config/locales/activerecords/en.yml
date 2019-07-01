@@ -1,0 +1,12 @@
+en:
+  activerecord:
+    models:
+      study_item: StudyItem
+    attributes:
+      study_item:
+        name: Name
+        code_no: Code NO
+        gender: Gender
+      study_item/gender:
+        male: Male
+        female: Female

@@ -1,0 +1,12 @@
+ja:
+  activerecord:
+    models:
+      study_item: スタディアイテム
+    attributes:
+      study_item:
+        name: 名前
+        code_no: コード番号
+        gender: 性別
+      study_item/gender:
+        male: 男性
+        female: 女性
