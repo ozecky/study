@@ -1,0 +1,12 @@
+<% if message.present? && message[:notice].present? %>
+    <div class="alert alert-success"><%== message[:notice].html_safe %></div>
+<% end %>
+
+<% if message.present? && message[:alert].present? %>
+    <div class="alert alert-danger">
+      <%== message[:alert].html_safe %>
+      <%= button_tag class: 'btn btn-sm btn-danger button-close' do %>
+          <%= t('view.button.close') %>
+      <% end %>
+    </div>
+<% end %>

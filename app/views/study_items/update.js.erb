@@ -1,0 +1,4 @@
+$('#common-modal').modal('hide');
+$('.table-container').html("<%= escape_javascript(render 'table', study_items: @study_items) %>");
+$('#flash-message-container').html("<%= escape_javascript(render 'layouts/flash_message', message: @message) %>");
+Study.study_items.show_message();

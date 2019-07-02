@@ -1,0 +1,9 @@
+en:
+  view:
+    button:
+      cancel: Cancel
+      do_create: Create
+      do_close: Close
+      do_update: Update
+    label:
+      confirm_delete: " Are you sure to delete %{name}?"

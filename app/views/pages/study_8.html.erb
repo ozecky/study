@@ -1,0 +1,112 @@
+<style>
+  dd {
+    padding: 0.5rem;
+  }
+
+  dd pre {
+    background-color: #dddddd;
+    padding: 0.5rem;
+  }
+</style>
+<div class="container">
+  <h1 class="text-center">Rails国際化 (I18n) API</h1>
+  <ul>
+    <li>https://railsguides.jp/i18n.html</li>
+    <li>https://qiita.com/Kta-M/items/bd4ba36a58ad602a9d8b</li>
+    <li>https://qiita.com/youcune/items/44c3b41c23ffcf091abe</li>
+  </ul>
+  <div class="row">
+    <div class="col-12">
+      <h2>推奨言語切り替え方法</h2>
+      <dl>
+        <dt>2.2.5 セッションやcookieに含まれるロケールの保存について</dt>
+        <dd>開発者は、選択したロケールをセッションやcookieに保存したくなる誘惑にかられるかもしれません。しかしこれは行ってはいけません。ロケールは透過的であるべきで、かつURLの一部に含めるべきです。こうすることで、ユーザーがweb自体に対して抱く基本的な前提を崩さずに済みます。あなたがそのURLを知人に送れば、あなたが見ているのとまったく同じページとコンテンツを知人も見ることができます。この前提を表す重要な言い回しが「RESTfulである」ということです。RESTfulアプローチについて詳しくは、Stefan Tilkovの記事を参照してください。RESTfulというルールから外れる場合もありますが、それについては後述します。</dd>
+        <dd>
+          <ul>
+            <li><%= link_to 'TOP', root_path %></li>
+            <li><%= link_to 'Study Item', study_items_path %></li>
+          </ul>
+        </dd>
+        <dd>
+          config/initializers/locale.rb
+          <pre>
+I18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
+
+I18n.available_locales = [:en, :ja]
+
+I18n.default_locale = :ja</pre>
+        </dd>
+        <dd>
+          controllers/application_controller.rb
+          <pre>
+class ApplicationController < ActionController::Base
+  #protect_from_forgery with: :exception
+  before_action :set_locale
+
+  private
+
+  def default_url_options
+    { locale: I18n.locale }
+  end
+
+  def set_locale
+    I18n.locale = locale_in_params || locale_in_accept_language || I18n.default_locale
+  end
+
+  def locale_in_params
+    if params[:locale].present?
+      params[:locale].to_sym.presence_in(I18n::available_locales) || I18n.default_locale
+    else
+      nil
+    end
+  end
+
+  def locale_in_accept_language
+    request.env['HTTP_ACCEPT_LANGUAGE']
+        .to_s # nil 対策
+        .split(',')
+        .map{ |_| _[0..1].to_sym }
+        .select { |_| I18n::available_locales.include?(_) }
+        .first
+  end
+
+end</pre>
+        </dd>
+        <dd>
+          config/routes.rb
+          <pre>
+scope "(:locale)", locale: /en|ja/ do
+    root 'pages#top'
+    get 'pages/study_1'
+end</pre>
+        </dd>
+      </dl>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <h2>Enumの表現</h2>
+      <dl>
+        <dt>4.5 Active Recordモデルで翻訳を行なう</dt>
+        <dd>
+          <pre>
+ja:
+  activerecord:
+    models:
+      study_item: スタディアイテム
+    attributes:
+      study_item:
+        name: 名前
+        code_no: コード番号
+        gender: 性別
+      study_item/gender:
+        male: 男性
+        female: 女性</pre>
+        </dd>
+      </dl>
+    </div>
+  </div>
+</div>
+<script>
+
+</script>

@@ -1,0 +1,22 @@
+ja:
+  study_items:
+    create:
+      prompt:
+        notice: 作成が完了しました。
+        alert: 作成に失敗しました。
+    destroy:
+      prompt:
+        notice: 削除が完了しました。
+        alert: 削除に失敗しました。
+    edit:
+      title: スタディアイテム編集
+    index:
+      title: スタディアイテム一覧
+    new:
+      title: スタディアイテム作成
+    update:
+      prompt:
+        notice: 更新が完了しました。
+        alert: 更新に失敗しました。
+
+
